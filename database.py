@@ -1,5 +1,5 @@
 from MySQLdb import connect, cursors, Error
-
+from logger import *
 MYSQLCONF = {
     'host': 'localhost',  # хост базы данных
     'user': 'TestUser',  # имя пользователя базы данных
@@ -31,7 +31,7 @@ def is_new_user(uuid):
         print("[LOGS] Пользователя нет в базе данных.")
         return True
     else:
-        print("[LOGS] Пользователь есть в базе данных.")
+        logger.info("[LOGS] Пользователь есть в базе данных.")
         return False
 
 

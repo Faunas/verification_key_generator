@@ -2,19 +2,21 @@ import socket
 import uuid
 from database import *
 import getpass
-
-name_pc = getpass.getuser()
-uuid = uuid.getnode()
-user_ip = socket.gethostbyname(socket.gethostname())
+from logger import *
 
 print(
     "Для получения самого ключа - обратитесь к администратору системы с просьбой выдать ключ доступа.\nПосле получения ключа введите его в программу.'\n"
     "Если ключ всё ещё не подходит, убедитесь, что вы написали его верно и без лишних пробелов.\n"
     "Если вы сделали всё правильно, то уведомление о неверном ключе доступа не появится.\nПриятного использования! :)\n\n\n")
 
+name_pc = getpass.getuser()
+uuid = uuid.getnode()
+user_ip = socket.gethostbyname(socket.gethostname())
+
 
 def all_info_about_user():
-    print(f"Название пользователя: {name_pc}\nУникальный идентификатор: {uuid}\nАйпи адрес: {user_ip}\n")
+    logger.info(
+        f"\nНазвание пользователя: {name_pc}\nУникальный идентификатор: {uuid}\nАйпи адрес: {user_ip}\n{'-' * 40}\n")
 
 
 all_info_about_user()
